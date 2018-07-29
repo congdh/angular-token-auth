@@ -31,7 +31,7 @@ gulp.task('javascript', () => {
     .pipe(connect.reload());
 });
 
-gulp.task('jshint',() => {
+gulp.task('jshint', () => {
   return gulp.src('./src/**/*.js')
     .pipe(jshint({ esnext: true }))
     .pipe(jshint.reporter('jshint-stylish'))
@@ -40,7 +40,7 @@ gulp.task('jshint',() => {
 
 gulp.task('style', () => {
   return gulp.src('src/**/*.js')
-    .pipe(jscs())
+    .pipe(jscs({ fix: true }))
     .pipe(jscs.reporter())
     .pipe(jscs.reporter('fail'));
 });
